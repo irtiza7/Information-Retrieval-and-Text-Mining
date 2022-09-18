@@ -1,0 +1,668 @@
+PlanBased Dialogue Management a Physics Tutor
+Reva Freedman
+Learning Research Development Center
+University Pittsburgh
+Pittsburgh PA
+freedrkpitt edu
+httpwwwpitt edufreedrk
+Abstract
+paper describes application APE
+Atlas Planning Engine integrated planning
+execution system the heart the Atlas dialogue
+management system APE controls mixed
+initiative dialogue a human user a
+host system turns the conversation may
+include graphical actions andor written text APE
+full unification can handle arbitrarily
+nested discourse constructs making more
+powerful dialogue managers based finite
+state machines illustrate work
+describing AtlasAndes intelligent tutoring
+system built using APE the Andes physics
+tutor the host
+Introduction
+purpose Atlas project to enlarge the
+scope student interaction an intelligent
+tutoring system to include coherent
+conversational sequences including written
+text GUI actions key component Atlas
+APE Atlas Planning Engine justin
+time planner specialized easy construction
+quick generation hierarchically organized
+dialogues APE a domain taskindependent
+system Although date have used APE a
+dialogue manager intelligent tutoring systems
+APE could also used manage types
+humancomputer conversation as advice
+giving system an interactive help system
+Planning an essential component a
+dialoguebased Although are many
+reasons using natural anguage an as
+soon the student gives unexpected response
+a tutor question tutor needs be able
+research supported NSF grant number
+CIRCLE Center Interdisciplinary
+Research Constructive Learning Environments atthe
+University Pittsburgh CarnegieMellon
+University
+plan order achieve goals well
+respond appropriately the students tatement
+Yet classical planning inappropriate
+dialogue generation precisely it assumes
+unchanging world more appropriate
+approach the practical reason approach
+pioneered Bratman According
+Bratman human beings maintain plans prefer
+follow but are also capable
+changing plans the fly needed
+Bratmans approach been introduced
+computer science the name reactive
+planning Georgeff Ingrand Wilkins et
+al
+this paper discuss rationale the use
+reactive planning well the use the
+hierarchical task network HTN style plan
+operators we describe APE Atlas
+Planning Engine dialogue planner have
+implemented embody above concepts
+demonstrate use APE showing we
+used add dialogue capability to an
+existing the Andes physics tutor showing
+dialogues AtlasAndes generate
+demonstrate advantages this architecture
+the finitestate machine approach dialogue
+management
+Integrated planning execution
+dialogue generation
+Practical reason the BDI model
+an planning required order ensure
+coherent conversation well to accomplish
+tutorial goals it impossible plan whole
+conversation advance the student
+respond freely every turn as human beings
+cannot plan daily lives advance of
+possible changes conditions Classical planning
+algorithms inappropriate the tutor
+must able change plans based the
+
+students responses
+this reason have adopted ideas the
+philosopher Michael Bratman
+Bratman uses term practical reason
+describe analysis since is concerned
+to reason practical matters human
+beings planning required order
+accomplish ones goals Bratmans key insight
+human beings tend follow plan they
+one although are capable dropping
+intention changing partial plan
+necessary other words human beings not
+decide to from scratch each turn
+Bratman others have adopted
+approach use tripartite mental model
+includes beliefs desires intentions Bratman
+Israel Pollack Pollack Georgeff
+et al hence name BDI model
+Beliefs are uninstantiated plans the
+speakers head reified the plan library
+Desires expressed the agents goals
+Intentions plan steps the agent
+committed but yet acted are stored an
+agenda Thus agents partial plan
+achieving goal a network intentions plan
+be left a partially expanded state it
+necessary refine further
+Implementation via reactive planning
+Bratmans approach been elaborated a
+computer science context subsequent
+researchers Bratman Israel Pollack
+Pollack Georgeff et al Reactive
+planning Georgeff Ingrand Wilkins et
+al originally known integrated
+planning execution one way
+implementing Bratmans model Originally
+developed realtime control the space
+shuttle reactive planning since used a
+variety other domains the Atlas project
+developed reactive planner called APE
+Atlas Planning Engine uses ideas
+conduct conversation each student
+response planner choose continue
+previous intention change something the
+plan respond better the students utterance
+Like reactive planners APE a
+hierarchical task network HTN style planner
+Yang Erol Hendler Nau
+Hierarchical decomposition asserts each goal
+be achieved via series subgoals instead
+relying meansend reasoning Hierarchical
+decomposition more appropriate dialogue
+generation a number reasons First
+decomposition better suited the type large
+scale dialogue planning required a realworld
+tutoring system it easier establish a
+human speaker say a given situation
+be able understand in sufficient detail
+generality do meansend planning Second
+Hierarchical decomposition minimizes search
+time Third dialogues taskoriented
+a hierarchical structure Grosz Sidner
+such case matching structure
+domain simplifies operator development
+they often derived transcripts
+human tutoring sessions hierarchy
+information also useful determining
+appropriate referring expressions Fourth inter
+leaved planning execution important
+dialogue generation we cannot predict
+human users future utterances an HTNbased
+system is straightforward implement
+interleaved planning execution one
+needs expand portion the plan
+about be executed Finally conversation
+in certain sense trace the plan other
+words care much about actions
+generated the planner the states involved
+whether implicitly explicitly specified
+Hierarchical decomposition provides trace
+naturally
+Background Andes physics tutor
+Andes Gertner Conati VanLehn an
+intelligent tutoring system the domain first
+year college physics Andes teaches via coached
+problem solving VanLehn coached
+problem solving tutoring system tracks
+student the latter attempts solve problem
+the student gets stuck deviates far a
+correct solution path tutoring system provides
+hints other assistance
+sample Andes problem shown mid
+solution Figure physics problem given
+the upperleft corner a picture it
+Next picture the student begun
+sketch vectors involved using GUI buttons
+along lefthand edge the screen the
+
+student draws vectors Andes the student
+cooperatively fill the variable definitions the
+upperright corner Later student use
+space to write equations connecting
+variables
+this example elevator decelerating
+acceleration vector face opposite
+direction the velocity vector the
+acceleration vector went same direction the
+velocity vector speed the elevator would
+increase it would crash the ground
+an important issue beginning physics
+occurs five Andes problems
+such errors occur Andes turns
+incorrect item red provides hints students
+the lowerleft corner the screen sample
+hints shown the order student would
+encounter is shown Fig hints
+outputonly form natural language
+student cant take initiative ask question
+addition is way the system ask
+student question lead student
+multistep directed line reasoning Thus
+no way use of effective rhetorical
+methods used skilled human tutors as
+analogy reductio ad absurdum Current
+psychological research suggests active
+methods students to answer
+questions improve performance
+tutoring systems
+Structure the Atlas Planning Engine
+Figure shows sample plan operator
+legibility key elements been rendered
+English instead in Lisp hiercx slot
+provides way the planner be aware the
+context which decomposition proposed
+Items the hiercx slot instantiated added
+the transient database so long the
+operator spawned is the agenda
+initiate planning session user invokes
+planner an initial goal system
+searches operator library find operators
+whose goal field matches next goal the
+agenda whose filter conditions precon
+elevator slows a stop an initial downward velocity
+ms seconds passenger the elevator
+holding kilogram package a vertical string
+is tension the string the process
+ii i
+÷Y
+eevo ms
+elevor a stop
+mass pwI
+magnitude the inst¢taneous Velocity pack age rkne vw
+magnitude the avelage Acceleratiorl package dudng ax
+vv
+
+
+pkg
+Figure Screen shot the Andes physics tutor
+
+draws acceleration vector same direction velocity
+Wrong
+Whats wrongwith
+Think he direction the acceleration vector
+Please explain
+Remember the direction acceleration the direction the change velocity
+Please explain
+Thedirection the acceleration vector straight
+draws acceleration vector correctly
+Figure Andes hint sequence formatted dialogue
+ditions satisfied Goals represented
+firstorder logic without quantifiers matched
+via unification Since APE intended especially
+generation hierarchically organized task
+oriented iscourse operator a multistep
+recipe the style Wilkins a
+match found matching goal removed
+the agenda is replaced the steps
+recipe APE two kinds primitive
+actions one ends turn the doesnt
+the point view discourse generation
+most important APE recipe items those
+allowing planner change agenda
+necessary three types recipe items make
+APE powerful a classical planner
+• Fact Evaluate condition false skip
+rest the recipe Fact used allow runtime
+decision making bypassing rest an
+operator circumstances change its
+execution Fact be used retryat
+implement loop as Prolog
+• Retryat purpose retryat to allow
+planner back to choice point make
+new decision removes goals sequentially
+the top the agenda full operator a
+time the supplied argument false it
+restores parent goal the last operator
+removed that planning choose
+new way achieve Retryat implements
+Prologlike choice alternatives it differs
+backtracking that new operator
+chosen based conditions apply the
+retry operation executed rather on list
+possible operators formed the original
+operator chosen retryat be useful
+author must provide multiple operators the
+goal operator must a set
+preconditions enabling to chosen the
+appropriate ime
+• Prunereplace intent prunereplace
+de f operator hand le samed rec ion
+goal
+f l te r
+p recond
+have asked quest ion acce le ra ion
+the tudent g iven answer
+f rom wh ich can deduce s th inks accel ve loc ty go
+same i rec ion
+we not g iven exp lanat ion low yet
+rec ipe
+Te l l s tudent i f acce le ra ion went same
+rec ion the loc i ty the e levator wou ld speed ing
+Mark we g iv ing th exp lanat ion
+Te l l s tudent tu tor request ing another answer Try aga
+Ed t agenda us ing prunereplace that respond ing another
+answer at top the agenda
+h ie rcx
+Figure Sample plan operator
+
+allow planner remove goals the
+agenda based a change circumstances
+removes goals sequentially the top the
+agenda one a time the supplied argument
+becomes false it replaces removed goals
+an optional ist new goals Prunereplace
+allows type decisionmaking frequently used
+dialogue generation a conversation
+partner not give expected response one
+would often like remove next goal the
+agenda replace with one more
+replacement goals Prunereplace implements
+generalized version this concept
+APE domainindependent d communicates
+a host system via API a partner a
+dialogue needs obtain information the
+world well produce output turns
+Preconditions plan operators be used
+access information external knowledge
+sources APE contains recipe item type can
+used execute external program as
+call a GUI interface APE also recipe items
+allowing user assert retract facts a
+knowledge base details the APE
+planner be found Freedman
+Implementation At lasAndes
+Architecture AtlasAndes
+first system have implemented APE
+a prototype AtlasAndes system replaces
+hints usually given an incorrect
+acceleration vector a choice generated
+subdialogues Figure shows architecture
+AtlasAndes other system built APE
+would look similar Robust natural language
+understanding AtlasAndes provided
+Ross CARMEL system Ros uses
+spelling correction algorithm devised Elmi
+Evens
+Structure human tutorial dialogues
+an earlier analysis Kim Freedman Evens
+showed a significant portion
+humanhuman tutorial dialogues be modeled
+the hierarchical structure taskoriented
+dialogues Grosz Sidner Furthermore
+main building block the discourse hierarchy
+corresponding the transaction level
+Conversation Analysis Sinclair Coulthard
+matches tutoring episode defined
+VanLehn et al tutoring episode
+consists turns necessary help the student
+make one correct entry the interface
+NLU
+CARMEL Plan Library
+User APE
+Interface
+I
+GUI Transient
+Interpreter Knowledge
+Andes Base
+Host
+Andes
+Figure Interface Atlas host system
+
+obtain empirical data the AtlasAndes
+plan operators analyzed portions a corpus
+human tutors helping students olve similar
+physics problems Two experienced tutors
+used Tutor was graduate student computer
+science had majored physics tutor B
+professional physics tutor
+complete corpus contained solutions five
+physics problems students We
+analyzed every tutoring episode dealing the
+acceleration vector deceleration totaling
+examples divided among students both
+tutors tutors very different styles
+Tutor tended provide encouragement rather
+content making transcripts less useful
+deriving informationbased approach
+Tutor B used informationbased approach
+one wrong answer tended complete
+solution a monologue Largely following
+tutor Bs approach sequence content
+isolated six ways teaching student
+direction acceleration
+Sample output evaluation
+Figure shows example text can
+generated the AtlasAndes ystem showing
+analogybased approach teaching content
+operator library used generate text
+could generate combinatorially arge number
+versions this dialogue well selected
+examples other ways teaching
+direction acceleration
+operator library used generate text
+contained l plan operators divided follows
+Tutoring schemata
+Switching schemata
+API GUI handling
+Answer handling
+Domaindep lex insertion
+Domainindep lex insertion
+TOTAL
+
+
+
+
+
+
+
+are currently working components hat
+allow us increase number physics
+concepts covered without corresponding
+increase the number operators schema
+switching operators prevent tutor
+repeating during physics problem
+could reduced eliminated a general
+discourse history component tutoring schema
+operators could refer Domaindependent
+lexical insertion refers the choice lexical
+items as car east the sample dialogue
+domainindependent iexical insertion refers
+items as OK exactly categories
+could eliminated at least severely reduced
+the use a text realization package
+Together would provide onethird reduction
+the number operators needed the set
+API GUI handling operators fixed
+would reduce half number application
+operators needed
+largest remaining category operators
+answer handlers operators handle
+variety answers each the five questions
+the system ask answers
+recognize include categories as dont
+know well specific answers eg direction
+perpendicular the correct answer we
+recognize the tutor specific replies
+them order reduce number
+draws acceleration vector same direction velocity
+What the definition acceleration
+Dont know
+OK lets try If car driving along east way would have push it
+make stop
+West
+Exactly opposite direction net force goes the opposite direction so
+acceleration Try draw acceleration vector now
+draws acceleration vector correctly
+Figure Example generated ialogue
+
+operators we must investigate
+general methods handling student errors
+particular plan investigate errorclassifying
+predicates apply more one question
+well the use intentionbased predicates
+Since system covers one rule physics
+albeit a variety ways plan make
+these efficiency improvements adding
+new rules physics testing with users
+Preconditions the operators the plan
+library utilize discourse interaction history
+current goal hierarchy recent information as
+tutors current goal the students latest
+response shared information as model
+objects the screen domain knowledge
+example the latter the student draws
+acceleration vector is incorrect not
+opposite the velocity vector different
+response be generated
+Discussion
+Many previous dialoguebased ITSs been
+implemented finitestate machines either
+simple augmented the common finite
+state mode time human user issues
+utterance processor educes to one a
+small number categories categories
+represent possible transitions states
+Thus history be stored context
+considered by expanding number
+states approach puts arbitrary restriction
+the amount context depth
+conversational nesting can considered
+importantly misses significant
+generalization these types dialogues
+hierarchical larger units contain repeated
+instances the smaller units different
+sequences instantiated different values
+Furthermore finitestate machine approach
+not allow author drop one line
+attack replace by another without hard
+coding every possible transition
+is also clear the dialoguebased approach
+many benefits the hintsequence
+approach addition providing multistep
+teaching methods new content can
+respond flexibly a variety student answers
+step take context account
+generating reply
+Related work
+Wenger still chief textbook ITSs
+states using global planner control ITS
+too inefficient try is longer true
+indeed ever Vassileva proposes
+system based ANDOR graphs a separate
+set rules reacting unexpected events
+Lehuen Nicolle Luzzati present
+method dialogue analysis produces
+schemata similar ours Earlier dialogue
+based ITSs use augmented finitestate
+machines equivalent include CIRCSIMTutor
+Woo et al Zhouet al the
+system described Woolf Cook
+uses levels finitestate machines None these
+systems provides predicates variables
+unification
+Conclusions
+this paper described APE integrated
+planner execution system we
+implemented part the Atlas dialogue
+manager APE uses HTNstyle operators is
+based reactive planning concepts Although
+APE intended largely use domains
+hierarchical multiturn plans can used
+implement conversationbased system
+turns the conversation may include graphical
+actions andor text illustrated use APE
+an example the AtlasAndes physics
+tutor showed previous models based
+finitestate machines insufficient handle
+nested subdialogues abandoned partial
+subdialogues occur practical applications
+showed APE generated sample
+dialogue earlier systems could handle
+Acknowledgments
+thank Abigail Gertner her generous
+assistance the Andes system Michael
+Ringenberg indispensible programming
+support Carolyn Ros built CARMEL
+natural language understanding component
+Mohammed EImi Michael Glass Illinois
+Institute Technology provided spelling
+correction code thank Pamela Jordan the
+referees their comments
+B
+References
+Bratman E Intentions Plans Practical
+Reason Cambridge Harvard
+Bratman E is Intention PR
+Cohen J Morgan M E Pollack Intentions
+Communication Cambridge MIT Press
+Bratman E Israel J Pollack
+Plans ResourceBounded Practical Reasoning
+Computational Intelligence
+Cook J Knowledge Mentoring a Framework
+Designing ComputerBased Agents Sup
+porting Musical Composition Learning PhD diss
+Computing Department Open University
+EImi and Evens MW Spelling
+Correction using Context Proceedings the th
+COLINGth ACL COLINGACL Montreal
+Erol K Hendler J Nau DS HTN
+Planning Complexity Expressivity
+Proceedings the Twelfth National Conference
+Artificial Intelligence AAAI Seattle
+Freedman R appear Using Reactive
+Planner the Basis a Dialogue Agent
+Proceedings the Thirteenth Florida Artificial
+Intelligence Research Symposium FLAIRS
+Orlando
+Gertner Conati C VanLehn K
+Procedural Help Andes Generating Hints Using
+Bayesian Network Student Model Proceedings
+Fifteenth National Conference Artificial
+Intelligence AAAI Madison
+Georgeff P Ingrand F F Decision
+Making an Embedded Reasoning System
+Proceedings the Eleventh International Joint
+Conference Artificial Intelligence IJCAI
+Detroit
+Georgeff MP Pell B Pollack E Tambe
+Wooldridge The BeliefDesire
+Intention Model Agency N Jenning J Muller
+M Wooldridge Eds Intelligent Agents V
+Springer
+Grosz BJ Sidner CL Attention
+Intentions the Structure Discourse
+Computational Linguistics
+Kim J Freedman R Evens
+Responding Unexpected Student Utterances
+CIRCSIMTutor v Analysis Transcripts
+Proceedings the Eleventh Florida Artificial
+Intelligence Research Symposium FLAIRS
+Sanibel Island
+Lehuen J Nicolle and Luzzati Un
+mode hypothticoexprimental dynamique pour la
+gestion des dialogues hommemachine Actes du
+dixime congrs de reconnaissance s formes et
+intelligence artificielle RFIA Rennes
+Pollack The Uses Plans Artificial
+Intelligence
+Ros C P Framework Robust Semantic
+Interpretation Proceedings the First Annual
+Conference the North American Chapter the
+Association Computational Linguistics
+NAACL
+Sinclair J and Coulthard R Towards
+Analysis Discourse English Used
+Teachers Pupils London Oxford University
+Press
+VanLehn K Conceptual Meta Learning
+Coached Problem Solving Intelligent
+Tutoring Systems Third International Conference
+Montreal Berlin Springer LNCS
+VanLehn K Siler Murray C Baggett W
+Makes Tutorial Event Effective
+Proceedings the Twentyfirst Annual Conference
+the Cognitive Science Society Madison Hillsdale
+N J Erlbaum
+Vassileva J Reactive Instructional Planning
+Support Interacting Teaching Strategies
+Proceedings the Seventh World Conference AI
+Education AIED Washington DC
+Charlottesville VA AACE
+Wenger E Artificial Intelligence Tutoring
+Systems Computational nd Cognitive Approaches
+the Communication Knowledge San Mateo
+CA Morgan Kaufmann
+Wilkins Practical Planning Extending
+Classical AI Planning Paradigm San Mateo CA
+Morgan Kaufmann
+Wilkins Myers K Lowrance J Wesley L
+Planning Reacting Uncertain
+Dynamic Environments Journal Experimental
+Theoretical Artificial Intelligence
+Woo C Evens MW Michael JA Rovick
+AA Dynamic Instructional Planning an
+Intelligent Physiology Tutoring System
+Proceedings the Fourth Annual EEE Computer
+Based Medical Systems Symposium Baltimore
+Woolf B ContextDependent Planning a
+Machine Tutor PhD diss Dept Computer
+Information Science University Massachusetts
+Amherst COINS Technical Report
+Yang Q Formalizing planning knowledge
+hierarchical planning Computational Intelligence
+
+Zhou Freedman R Glass Michael JA
+Rovick AA Evens MW Delivering
+Hints a DialogueBased Intelligent Tutoring
+System Proceedings the Sixteenth National
+Conference Artificial Intelligence AAAI
+Orlando FL
+
