@@ -1,0 +1,668 @@
+planbas dialogu manag a physic tutor
+reva freedman
+learn research develop center
+univers pittsburgh
+pittsburgh pa
+freedrkpitt edu
+httpwwwpitt edufreedrk
+abstract
+paper describ applic ape
+atla plan engin integr plan
+execut system the heart the atla dialogu
+manag system ape control mix
+initi dialogu a human user a
+host system turn the convers may
+includ graphic action andor written text ape
+full unif can handl arbitrarili
+nest discours construct make more
+power dialogu manag base finit
+state machin illustr work
+describ atlasand intellig tutor
+system built use ape the and physic
+tutor the host
+introduct
+purpos atla project to enlarg the
+scope student interact an intellig
+tutor system to includ coher
+convers sequenc includ written
+text gui action key compon atla
+ape atla plan engin justin
+time planner special easi construct
+quick gener hierarch organ
+dialogu ape a domain taskindepend
+system although date have use ape a
+dialogu manag intellig tutor system
+ape could also use manag type
+humancomput convers as advic
+give system an interact help system
+plan an essenti compon a
+dialoguebas although are mani
+reason use natur anguag an as
+soon the student give unexpect respons
+a tutor question tutor need be abl
+research support nsf grant number
+circl center interdisciplinari
+research construct learn environ atth
+univers pittsburgh carnegiemellon
+univers
+plan order achiev goal well
+respond appropri the student tatement
+yet classic plan inappropri
+dialogu gener precis it assum
+unchang world more appropri
+approach the practic reason approach
+pioneer bratman accord
+bratman human be maintain plan prefer
+follow but are also capabl
+chang plan the fli need
+bratman approach been introduc
+comput scienc the name reactiv
+plan georgeff ingrand wilkin et
+al
+thi paper discuss rational the use
+reactiv plan well the use the
+hierarch task network htn style plan
+oper we describ ape atla
+plan engin dialogu planner have
+implement embodi abov concept
+demonstr use ape show we
+use add dialogu capabl to an
+exist the and physic tutor show
+dialogu atlasand gener
+demonstr advantag thi architectur
+the finitest machin approach dialogu
+manag
+integr plan execut
+dialogu gener
+practic reason the bdi model
+an plan requir order ensur
+coher convers well to accomplish
+tutori goal it imposs plan whole
+convers advanc the student
+respond freeli everi turn as human be
+can not plan daili live advanc of
+possibl chang condit classic plan
+algorithm inappropri the tutor
+must abl chang plan base the
+
+student respons
+thi reason have adopt idea the
+philosoph michael bratman
+bratman use term practic reason
+describ analysi sinc is concern
+to reason practic matter human
+be plan requir order
+accomplish one goal bratman key insight
+human be tend follow plan they
+one although are capabl drop
+intent chang partial plan
+necessari other word human be not
+decid to from scratch each turn
+bratman other have adopt
+approach use tripartit mental model
+includ belief desir intent bratman
+israel pollack pollack georgeff
+et al henc name bdi model
+belief are uninstanti plan the
+speaker head reifi the plan librari
+desir express the agent goal
+intent plan step the agent
+commit but yet act are store an
+agenda thu agent partial plan
+achiev goal a network intent plan
+be left a partial expand state it
+necessari refin further
+implement via reactiv plan
+bratman approach been elabor a
+comput scienc context subsequ
+research bratman israel pollack
+pollack georgeff et al reactiv
+plan georgeff ingrand wilkin et
+al origin known integr
+plan execut one way
+implement bratman model origin
+develop realtim control the space
+shuttl reactiv plan sinc use a
+varieti other domain the atla project
+develop reactiv planner call ape
+atla plan engin use idea
+conduct convers each student
+respons planner choos continu
+previou intent chang someth the
+plan respond better the student utter
+like reactiv planner ape a
+hierarch task network htn style planner
+yang erol hendler nau
+hierarch decomposit assert each goal
+be achiev via seri subgoal instead
+reli meansend reason hierarch
+decomposit more appropri dialogu
+gener a number reason first
+decomposit better suit the type larg
+scale dialogu plan requir a realworld
+tutor system it easier establish a
+human speaker say a given situat
+be abl understand in suffici detail
+gener do meansend plan second
+hierarch decomposit minim search
+time third dialogu taskori
+a hierarch structur grosz sidner
+such case match structur
+domain simplifi oper develop
+they often deriv transcript
+human tutor session hierarchi
+inform also use determin
+appropri refer express fourth inter
+leav plan execut import
+dialogu gener we can not predict
+human user futur utter an htnbase
+system is straightforward implement
+interleav plan execut one
+need expand portion the plan
+about be execut final convers
+in certain sens trace the plan other
+word care much about action
+gener the planner the state involv
+whether implicitli explicitli specifi
+hierarch decomposit provid trace
+natur
+background and physic tutor
+and gertner conati vanlehn an
+intellig tutor system the domain first
+year colleg physic and teach via coach
+problem solv vanlehn coach
+problem solv tutor system track
+student the latter attempt solv problem
+the student get stuck deviat far a
+correct solut path tutor system provid
+hint other assist
+sampl and problem shown mid
+solut figur physic problem given
+the upperleft corner a pictur it
+next pictur the student begun
+sketch vector involv use gui button
+along lefthand edg the screen the
+
+student draw vector and the student
+cooper fill the variabl definit the
+upperright corner later student use
+space to write equat connect
+variabl
+thi exampl elev deceler
+acceler vector face opposit
+direct the veloc vector the
+acceler vector went same direct the
+veloc vector speed the elev would
+increas it would crash the ground
+an import issu begin physic
+occur five and problem
+such error occur and turn
+incorrect item red provid hint student
+the lowerleft corner the screen sampl
+hint shown the order student would
+encount is shown fig hint
+outputonli form natur languag
+student cant take initi ask question
+addit is way the system ask
+student question lead student
+multistep direct line reason thu
+no way use of effect rhetor
+method use skill human tutor as
+analog reductio ad absurdum current
+psycholog research suggest activ
+method student to answer
+question improv perform
+tutor system
+structur the atla plan engin
+figur show sampl plan oper
+legibl key element been render
+english instead in lisp hiercx slot
+provid way the planner be awar the
+context which decomposit propos
+item the hiercx slot instanti ad
+the transient databas so long the
+oper spawn is the agenda
+initi plan session user invok
+planner an initi goal system
+search oper librari find oper
+whose goal field match next goal the
+agenda whose filter condit precon
+elev slow a stop an initi downward veloc
+ms second passeng the elev
+hold kilogram packag a vertic string
+is tension the string the process
+ii i
+÷y
+eevo ms
+elevor a stop
+mass pwi
+magnitud the inst¢tan veloc pack age rkne vw
+magnitud the avelag acceleratiorl packag dudng ax
+vv
+
+
+pkg
+figur screen shot the and physic tutor
+
+draw acceler vector same direct veloc
+wrong
+what wrongwith
+think he direct the acceler vector
+pleas explain
+rememb the direct acceler the direct the chang veloc
+pleas explain
+thedirect the acceler vector straight
+draw acceler vector correctli
+figur and hint sequenc format dialogu
+dition satisfi goal repres
+firstord logic without quantifi match
+via unif sinc ape intend especi
+gener hierarch organ task
+orient iscours oper a multistep
+recip the style wilkin a
+match found match goal remov
+the agenda is replac the step
+recip ape two kind primit
+action one end turn the doesnt
+the point view discours gener
+most import ape recip item those
+allow planner chang agenda
+necessari three type recip item make
+ape power a classic planner
+• fact evalu condit fals skip
+rest the recip fact use allow runtim
+decis make bypass rest an
+oper circumst chang it
+execut fact be use retryat
+implement loop as prolog
+• retryat purpos retryat to allow
+planner back to choic point make
+new decis remov goal sequenti
+the top the agenda full oper a
+time the suppli argument fals it
+restor parent goal the last oper
+remov that plan choos
+new way achiev retryat implement
+prologlik choic altern it differ
+backtrack that new oper
+chosen base condit appli the
+retri oper execut rather on list
+possibl oper form the origin
+oper chosen retryat be use
+author must provid multipl oper the
+goal oper must a set
+precondit enabl to chosen the
+appropri ime
+• prunereplac intent prunereplac
+de f oper hand le same rec ion
+goal
+f l te r
+p recond
+have ask quest ion acc le ra ion
+the tudent g iven answer
+f rom wh ich can deduc s th ink accel ve loc ty go
+same i rec ion
+we not g iven exp lanat ion low yet
+rec ipe
+te l l s tudent i f acc le ra ion went same
+rec ion the loc i ty the e levat wou ld speed ing
+mark we g iv ing th exp lanat ion
+te l l s tudent tu tor request ing anoth answer tri aga
+ed t agenda us ing prunereplac that respond ing anoth
+answer at top the agenda
+h ie rcx
+figur sampl plan oper
+
+allow planner remov goal the
+agenda base a chang circumst
+remov goal sequenti the top the
+agenda one a time the suppli argument
+becom fals it replac remov goal
+an option ist new goal prunereplac
+allow type decisionmak frequent use
+dialogu gener a convers
+partner not give expect respons one
+would often like remov next goal the
+agenda replac with one more
+replac goal prunereplac implement
+gener version thi concept
+ape domainindepend d commun
+a host system via api a partner a
+dialogu need obtain inform the
+world well produc output turn
+precondit plan oper be use
+access inform extern knowledg
+sourc ape contain recip item type can
+use execut extern program as
+call a gui interfac ape also recip item
+allow user assert retract fact a
+knowledg base detail the ape
+planner be found freedman
+implement at lasand
+architectur atlasand
+first system have implement ape
+a prototyp atlasand system replac
+hint usual given an incorrect
+acceler vector a choic gener
+subdialogu figur show architectur
+atlasand other system built ape
+would look similar robust natur languag
+understand atlasand provid
+ross carmel system ro use
+spell correct algorithm devis elmi
+even
+structur human tutori dialogu
+an earlier analysi kim freedman even
+show a signific portion
+humanhuman tutori dialogu be model
+the hierarch structur taskori
+dialogu grosz sidner furthermor
+main build block the discours hierarchi
+correspond the transact level
+convers analysi sinclair coulthard
+match tutor episod defin
+vanlehn et al tutor episod
+consist turn necessari help the student
+make one correct entri the interfac
+nlu
+carmel plan librari
+user ape
+interfac
+i
+gui transient
+interpret knowledg
+and base
+host
+and
+figur interfac atla host system
+
+obtain empir data the atlasand
+plan oper analyz portion a corpu
+human tutor help student olv similar
+physic problem two experienc tutor
+use tutor wa graduat student comput
+scienc had major physic tutor b
+profession physic tutor
+complet corpu contain solut five
+physic problem student we
+analyz everi tutor episod deal the
+acceler vector deceler total
+exampl divid among student both
+tutor tutor veri differ style
+tutor tend provid encourag rather
+content make transcript less use
+deriv informationbas approach
+tutor b use informationbas approach
+one wrong answer tend complet
+solut a monologu larg follow
+tutor bs approach sequenc content
+isol six way teach student
+direct acceler
+sampl output evalu
+figur show exampl text can
+gener the atlasand ystem show
+analogybas approach teach content
+oper librari use gener text
+could gener combinatori arg number
+version thi dialogu well select
+exampl other way teach
+direct acceler
+oper librari use gener text
+contain l plan oper divid follow
+tutor schemata
+switch schemata
+api gui handl
+answer handl
+domaindep lex insert
+domainindep lex insert
+total
+
+
+
+
+
+
+
+are current work compon hat
+allow us increas number physic
+concept cover without correspond
+increas the number oper schema
+switch oper prevent tutor
+repeat dure physic problem
+could reduc elimin a gener
+discours histori compon tutor schema
+oper could refer domaindepend
+lexic insert refer the choic lexic
+item as car east the sampl dialogu
+domainindepend iexic insert refer
+item as ok exactli categori
+could elimin at least sever reduc
+the use a text realiz packag
+togeth would provid onethird reduct
+the number oper need the set
+api gui handl oper fix
+would reduc half number applic
+oper need
+largest remain categori oper
+answer handler oper handl
+varieti answer each the five question
+the system ask answer
+recogn includ categori as dont
+know well specif answer eg direct
+perpendicular the correct answer we
+recogn the tutor specif repli
+them order reduc number
+draw acceler vector same direct veloc
+what the definit acceler
+dont know
+ok let tri if car drive along east way would have push it
+make stop
+west
+exactli opposit direct net forc goe the opposit direct so
+acceler tri draw acceler vector now
+draw acceler vector correctli
+figur exampl gener ialogu
+
+oper we must investig
+gener method handl student error
+particular plan investig errorclassifi
+predic appli more one question
+well the use intentionbas predic
+sinc system cover one rule physic
+albeit a varieti way plan make
+these effici improv ad
+new rule physic test with user
+precondit the oper the plan
+librari util discours interact histori
+current goal hierarchi recent inform as
+tutor current goal the student latest
+respons share inform as model
+object the screen domain knowledg
+exampl the latter the student draw
+acceler vector is incorrect not
+opposit the veloc vector differ
+respons be gener
+discuss
+mani previou dialoguebas itss been
+implement finitest machin either
+simpl augment the common finit
+state mode time human user issu
+utter processor educ to one a
+small number categori categori
+repres possibl transit state
+thu histori be store context
+consid by expand number
+state approach put arbitrari restrict
+the amount context depth
+convers nest can consid
+importantli miss signific
+gener these type dialogu
+hierarch larger unit contain repeat
+instanc the smaller unit differ
+sequenc instanti differ valu
+furthermor finitest machin approach
+not allow author drop one line
+attack replac by anoth without hard
+code everi possibl transit
+is also clear the dialoguebas approach
+mani benefit the hintsequ
+approach addit provid multistep
+teach method new content can
+respond flexibl a varieti student answer
+step take context account
+gener repli
+relat work
+wenger still chief textbook itss
+state use global planner control it
+too ineffici tri is longer true
+inde ever vassileva propos
+system base andor graph a separ
+set rule react unexpect event
+lehuen nicol luzzati present
+method dialogu analysi produc
+schemata similar our earlier dialogu
+base itss use augment finitest
+machin equival includ circsimtutor
+woo et al zhouet al the
+system describ woolf cook
+use level finitest machin none these
+system provid predic variabl
+unif
+conclus
+thi paper describ ape integr
+planner execut system we
+implement part the atla dialogu
+manag ape use htnstyle oper is
+base reactiv plan concept although
+ape intend larg use domain
+hierarch multiturn plan can use
+implement conversationbas system
+turn the convers may includ graphic
+action andor text illustr use ape
+an exampl the atlasand physic
+tutor show previou model base
+finitest machin insuffici handl
+nest subdialogu abandon partial
+subdialogu occur practic applic
+show ape gener sampl
+dialogu earlier system could handl
+acknowledg
+thank abigail gertner her gener
+assist the and system michael
+ringenberg indispens program
+support carolyn ro built carmel
+natur languag understand compon
+moham eimi michael glass illinoi
+institut technolog provid spell
+correct code thank pamela jordan the
+refere their comment
+b
+refer
+bratman e intent plan practic
+reason cambridg harvard
+bratman e is intent pr
+cohen j morgan m e pollack intent
+commun cambridg mit press
+bratman e israel j pollack
+plan resourcebound practic reason
+comput intellig
+cook j knowledg mentor a framework
+design computerbas agent sup
+port music composit learn phd diss
+comput depart open univers
+eimi and even mw spell
+correct use context proceed the th
+colingth acl colingacl montreal
+erol k hendler j nau ds htn
+plan complex express
+proceed the twelfth nation confer
+artifici intellig aaai seattl
+freedman r appear use reactiv
+planner the basi a dialogu agent
+proceed the thirteenth florida artifici
+intellig research symposium flair
+orlando
+gertner conati c vanlehn k
+procedur help and gener hint use
+bayesian network student model proceed
+fifteenth nation confer artifici
+intellig aaai madison
+georgeff p ingrand f f decis
+make an embed reason system
+proceed the eleventh intern joint
+confer artifici intellig ijcai
+detroit
+georgeff mp pell b pollack e tamb
+wooldridg the beliefdesir
+intent model agenc n jen j muller
+m wooldridg ed intellig agent v
+springer
+grosz bj sidner cl attent
+intent the structur discours
+comput linguist
+kim j freedman r even
+respond unexpect student utter
+circsimtutor v analysi transcript
+proceed the eleventh florida artifici
+intellig research symposium flair
+sanibel island
+lehuen j nicol and luzzati un
+mode hypothticoexpriment dynamiqu pour la
+gestion de dialogu hommemachin act du
+dixim congr de reconnaiss s form et
+intellig artificiel rfia renn
+pollack the use plan artifici
+intellig
+ro c p framework robust semant
+interpret proceed the first annual
+confer the north american chapter the
+associ comput linguist
+naacl
+sinclair j and coulthard r toward
+analysi discours english use
+teacher pupil london oxford univers
+press
+vanlehn k conceptu meta learn
+coach problem solv intellig
+tutor system third intern confer
+montreal berlin springer lnc
+vanlehn k siler murray c baggett w
+make tutori event effect
+proceed the twentyfirst annual confer
+the cognit scienc societi madison hillsdal
+n j erlbaum
+vassileva j reactiv instruct plan
+support interact teach strategi
+proceed the seventh world confer ai
+educ aie washington dc
+charlottesvil va aac
+wenger e artifici intellig tutor
+system comput nd cognit approach
+the commun knowledg san mateo
+ca morgan kaufmann
+wilkin practic plan extend
+classic ai plan paradigm san mateo ca
+morgan kaufmann
+wilkin myer k lowranc j wesley l
+plan react uncertain
+dynam environ journal experiment
+theoret artifici intellig
+woo c even mw michael ja rovick
+aa dynam instruct plan an
+intellig physiolog tutor system
+proceed the fourth annual eee comput
+base medic system symposium baltimor
+woolf b contextdepend plan a
+machin tutor phd diss dept comput
+inform scienc univers massachusett
+amherst coin technic report
+yang q formal plan knowledg
+hierarch plan comput intellig
+
+zhou freedman r glass michael ja
+rovick aa even mw deliv
+hint a dialoguebas intellig tutor
+system proceed the sixteenth nation
+confer artifici intellig aaai
+orlando fl
+
